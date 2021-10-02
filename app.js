@@ -180,3 +180,14 @@ app.get("/:id1/:id2/makeFriends", function (req, res) {
     }
   });
 });
+
+app.get("/:id/exercise", isLoggedIn, function (req, res) {
+  User.findById(req.params.id, function (err, details) {
+    if (err) console.log(err);
+    else {
+      res.render("exercise", {
+        call: call,
+      });
+    }
+  });
+});
