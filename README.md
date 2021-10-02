@@ -4,20 +4,20 @@
 
 - [x] brief problem statement discussion
 
-- [] pose detection implementaion locally
+- [ ] pose detection implementaion locally
 
-- [] video streaming on web
+- [ ] video streaming on web
 
-- [] integrating multiple streams
+- [ ] integrating multiple streams
 
 - [x] basic website layout design
 
-- [] user authentication
+- [ ] user authentication
 
-- [] dashboard for multiple users
+- [ ] dashboard for multiple users
 
-- [] integrating streams with pose detecting model in javascript
+- [ ] integrating streams with pose detecting model in javascript
 
-- [] gamification of the idea
+- [ ] gamification of the idea
 
-- [] features like badges and incentives
+- [ ] features like badges and incentives
