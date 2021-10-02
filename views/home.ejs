@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link href="assets/css/master.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="body" class="active">
+
+         <!-- Navbar Section -->
+        <nav class="navbar navbar-expand-lg navbar-white bg-white">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <div class="nav-dropdown">
+                  <% if(!currentUser){ %>
+                  <a
+                    href="#"
+                    id="nav2"
+                    class="nav-item nav-link dropdown-toggle text-secondary"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-user"></i> <span> User</span>
+                    <i style="font-size: 0.8em" class="fas fa-caret-down"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end nav-link-menu">
+                    <ul class="nav-list">
+                      <li
+                        class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"
+                      >
+                        <a class="dropdown-item" href="/login"
+                          ><i class="fas fa-address-card"></i> Login</a
+                        >
+                      </li>
+                      <li
+                        class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"
+                      >
+                        <a class="dropdown-item" href="/signup"
+                          ><i class="fas fa-address-card"></i> Sign Up</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <% } else { %>
+                  <a
+                    href="#"
+                    id="nav2"
+                    class="nav-item nav-link dropdown-toggle text-secondary"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-user"></i>
+                    <span><%= currentUser.username %></span>
+                    <i style="font-size: 0.8em" class="fas fa-caret-down"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end nav-link-menu">
+                    <ul class="nav-list">
+                      <li>
+                        <a href="/<%=currentUser._id%>/streak" class="dropdown-item"><i class="fas fa-fire"></i> Streak</a>
+                        <a href="/logout" class="dropdown-item"
+                          ><i class="fas fa-sign-out-alt"></i> Logout</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <% } %>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Navbar Section Ends -->
+
+
+        <center>
+            <img src="assets/img/undraw_healthy_habit_bh5w.svg" style="width: 65%; height: 65%;">
+            <h1 style="color:#104FBD; font-weight: bold; font-size: 35px; padding-bottom: 120px; padding-top: 40px;">
+                Welcome to Fitness Pro
+            </h1>
+        </center>
+
+      </div>
+    </div>
+
+    
+
+
+    
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
