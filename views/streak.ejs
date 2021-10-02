@@ -1,0 +1,290 @@
+<%- include('partials/header1'); -%>
+<link href="/assets/css/dashboard.css" rel="stylesheet" />
+<%- include('partials/header2'); -%> <%- include('partials/navbar'); -%>
+
+<div class="row mb-2">
+  <div class="col-md-12 page-header">
+    <div class="page-pretitle">Overview</div>
+    <h2 class="page-title">Dashboard</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="card" style="padding-left: 0px; padding-right: 0;">
+    <div class="card-header">
+      <div class="row"> 
+        <div class="col-sm-6 col-md-6 col-lg-6">
+          <p class="card-text" style="margin-bottom: 5px; margin-top: 3px;">Name: <b><%=name%></b> </p>
+          <p class="card-text" style="margin-bottom: 5px;">Streak: <b><%=streak%> days</b></p>
+          <p class="card-text" style="margin-bottom: 5px;">Points: <b><%=points%></b> </p>
+          <p class="card-text" style="margin-bottom: 5px;">Overall Ranking: <b><%=ranking%></b> </p>
+        </div>
+        <div class="col-sm-6 col-md-2 col-lg-2"><img src="/assets/img/10.png"></div>
+        <div class="col-sm-6 col-md-2 col-lg-2"><img src="/assets/img/11.png"></div>
+        <div class="col-sm-6 col-md-2 col-lg-2"><img src="/assets/img/12.png"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+          <div class="content">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="icon-big text-center">
+                  <!-- <i class="orange fas fa-fire-alt"></i> -->
+                  <img src="/assets/img/9.png" />
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="detail">
+                  <p class="detail-subtitle">Push Ups</p>
+                  <span class="number">100</span>
+                </div>
+              </div>
+            </div>
+            <div class="footer">
+              <hr />
+              <div class="stats">
+                <i class="fas fa-calendar"></i> For this Week
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+          <div class="content">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="icon-big text-center">
+                  <img src="/assets/img/6.jpg" />
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="detail">
+                  <p class="detail-subtitle">Lifting</p>
+                  <span class="number">55</span>
+                </div>
+              </div>
+            </div>
+            <div class="footer">
+              <hr />
+              <div class="stats">
+                <i class="fas fa-calendar"></i> For this Week
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+          <div class="content">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="icon-big text-center">
+                  <img src="/assets/img/7.png" />
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="detail">
+                  <p class="detail-subtitle">Skipping</p>
+                  <span class="number">300</span>
+                </div>
+              </div>
+            </div>
+            <div class="footer">
+              <hr />
+              <div class="stats">
+                <i class="fas fa-calendar"></i> For this Week
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+          <div class="content">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="icon-big text-center">
+                  <img src="/assets/img/8.png" />
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="detail">
+                  <p class="detail-subtitle">Sit Ups</p>
+                  <span class="number">75</span>
+                </div>
+              </div>
+            </div>
+            <div class="footer">
+              <hr />
+              <div class="stats">
+                <i class="fas fa-calendar"></i> For this Week
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="graph">
+      <ul class="months" style="list-style-type: none">
+        <li>Jan</li>
+        <li>Feb</li>
+        <li>Mar</li>
+        <li>Apr</li>
+        <li>May</li>
+        <li>Jun</li>
+        <li>Jul</li>
+        <li>Aug</li>
+        <li>Sep</li>
+        <li>Oct</li>
+        <li>Nov</li>
+        <li>Dec</li>
+      </ul>
+      <ul class="days" style="list-style-type: none">
+        <li>Sun</li>
+        <li>Mon</li>
+        <li>Tue</li>
+        <li>Wed</li>
+        <li>Thu</li>
+        <li>Fri</li>
+        <li>Sat</li>
+      </ul>
+      <ul class="squares" style="list-style-type: none">
+        <!-- added via javascript -->
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="content">
+            <div class="head">
+              <h5 class="mb-0">Leaderboard</h5>
+              <p class="text-muted">Your Friends</p>
+            </div>
+            <div class="canvas-wrapper">
+              <table class="table table-striped">
+                <thead class="success">
+                  <tr>
+                    <th>Name</th>
+                    <th class="text-end">Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Shankhanil
+                    </td>
+                    <td class="text-end">500</td>
+                  </tr>
+                  <tr>
+                    <td> <a href="/6133b496a53a10001609b9e4/streak">Anshoo</a></td>
+                    <td class="text-end">480</td>
+                  </tr>
+                  <tr>
+                    <td> <a href="/6133b4eba53a10001609b9f7/streak">Gaurav K</a></td>
+                    <td class="text-end">470</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Siddharth Gautam
+                    </td>
+                    <td class="text-end">450</td>
+                  </tr>
+                  <tr>
+                    <td>
+                       Neel 
+                    </td>
+                    <td class="text-end">430</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="content">
+            <div class="head">
+              <h5 class="mb-0">Leaderboard</h5>
+              <p class="text-muted">Overall Ranking</p>
+            </div>
+            <div class="canvas-wrapper">
+              <table class="table table-striped">
+                <thead class="success">
+                  <tr>
+                    <th>Name</th>
+                    <th class="text-end">Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <i class="flag-icon flag-icon-us"></i> Shankhanil
+                    </td>
+                    <td class="text-end">500</td>
+                  </tr>
+                  <tr>
+                    <td><i class="flag-icon flag-icon-in"></i> Anshoo</td>
+                    <td class="text-end">480</td>
+                  </tr>
+                  <tr>
+                    <td><i class="flag-icon flag-icon-jp"></i> Gaurav K</td>
+                    <td class="text-end">470</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="flag-icon flag-icon-gb"></i> Siddharth Gautam
+                    </td>
+                    <td class="text-end">450</td>
+                  </tr>
+                  <tr>
+                    <td><i class="flag-icon flag-icon-in"></i> Vishal Nagar</td>
+                    <td class="text-end">21,280</td>
+                  </tr>
+                  <tr>
+                    <td><i class="flag-icon flag-icon-jp"></i> Somya Gupta</td>
+                    <td class="text-end">18,210</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="flag-icon flag-icon-gb"></i> Sanjit Anand
+                    </td>
+                    <td class="text-end">15,176</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="flag-icon flag-icon-gb"></i> Prakhar
+                    </td>
+                    <td class="text-end">15,176</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="flag-icon flag-icon-gb"></i> Banseedhar
+                    </td>
+                    <td class="text-end">15,176</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="flag-icon flag-icon-gb"></i> Harsh Malvi
+                    </td>
+                    <td class="text-end">15,176</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('partials/footer1'); -%>
+    <script src="/assets/js/dashboard.js"></script>
+    <%- include('partials/footer2'); -%>
+  </div>
+</div>

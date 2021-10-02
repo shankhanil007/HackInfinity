@@ -113,3 +113,17 @@ app.get("/logout", function (req, res) {
 app.get("/", (req, res) => {
   res.render("home");
 });
+
+app.get("/:id/streak", isLoggedIn, (req, res) => {
+  User.findById(req.params.id, function (err, details) {
+    if (err) console.log(err);
+    else {
+      res.render("streak", {
+        name: details.name,
+        streak: details.streak,
+        points: details.points,
+        ranking: details.ranking,
+      });
+    }
+  });
+});
