@@ -1,0 +1,93 @@
+<%- include('partials/header1'); -%> <%- include('partials/header2'); -%> <%-
+include('partials/navbar'); -%>
+
+<div class="row mt-4">
+  <% var url="/"+user_details._id+"/friendRequest"; %>
+  <form action="<%= url %>?_method=PUT" method="POST" accept-charset="utf-8">
+    <div class="mb-3">
+      <label for="email" class="form-label">Friend's ID</label>
+      <input
+        type="text"
+        name="id"
+        placeholder="Friend's ID"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <input type="submit" class="btn btn-primary" />
+    </div>
+  </form>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="content">
+        <div class="head">
+          <h5 class="mb-0">Your Friends</h5>
+        </div>
+        <div class="canvas-wrapper">
+          <table class="table table-striped">
+            <thead class="success">
+              <tr>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% user_details.friends.forEach(function(details){ %>
+              <tr>
+                <td>
+                  <i class="flag-icon flag-icon-us"></i> <%= details.name%>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="content">
+        <div class="head">
+          <h5 class="mb-0">Pending Requests</h5>
+        </div>
+        <div class="canvas-wrapper">
+          <table class="table table-striped">
+            <thead class="success">
+              <tr>
+                <th>Name</th>
+                <th class="text-end">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% user_details.pendingRequest.forEach(function(details){ %>
+              <tr>
+                <td>
+                  <i class="flag-icon flag-icon-us"></i> <%= details.name%>
+                </td>
+                <td class="text-end">
+                  <% var
+                  url="/"+details._id+"/"+user_details._id+"/makeFriends";%>
+                  <a href="<%=url%>" class="btn btn-outline-info btn-rounded"
+                    ><i class="fas fa-check" style="color: forestgreen"></i
+                  ></a>
+                  <a href="" class="btn btn-outline-danger btn-rounded"
+                    ><i class="fas fa-trash"></i
+                  ></a>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer1'); -%> <%- include('partials/footer2'); -%>
