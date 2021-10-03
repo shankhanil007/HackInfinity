@@ -191,3 +191,23 @@ app.get("/:id/exercise", isLoggedIn, function (req, res) {
     }
   });
 });
+
+app.get("/:id/leaderboard", function (req, res) {
+  leaderBoard.find({ room: req.params.id }, function (err, details) {
+    if (err) console.log(err);
+    else {
+      res.json(details);
+    }
+  });
+});
+
+app.get("/:id/updateScore/:score", function (req, res) {
+  leaderBoard.findOne({ socketid: req.params.id }, function (err, details) {
+    if (err) console.log(err);
+    else {
+      details.score = req.params.score;
+      details.save();
+      res.json("success");
+    }
+  });
+});
