@@ -1,5 +1,7 @@
 # Streak-Fit
 Project for Build-a-thon (Domain : Healthcare)
+ * Try it out : https://streak-fit.herokuapp.com/
+ * Video Demo : https://youtu.be/nyW7AHk1s3U
 
 ## Problem Statement
 
