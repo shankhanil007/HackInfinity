@@ -1,0 +1,198 @@
+<%- include('partials/header1'); -%>
+<script
+  src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/control_utils_3d.js"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"
+  crossorigin="anonymous"
+></script>
+<link rel="stylesheet" href="https://unpkg.com/plyr@3/dist/plyr.css" />
+<style>
+  .plyr--video {
+    width: 70%;
+  }
+</style>
+<%- include('partials/header2'); -%> <%- include('partials/navbar'); -%>
+
+<div class="row">
+  <p id="notification" hidden></p>
+  <div class="entry-modal" id="entry-modal">
+    <div class="mt-3">
+      <div class="row">
+        <div class="col-md-4">
+          <label for="Yoga Poses" class="form-label">Yoga Poses</label>
+          <select id="pose" name="time" class="form-select" required>
+            <option value="0">Mountain</option>
+            <option value="1">Triangle</option>
+            <option value="2">Tree</option>
+            <option value="3">Cobra</option>
+            <option value="3">Downward dog</option>
+            <option value="3">Chair</option>
+            <option value="3">Warrior</option>
+            <option value="3">Plank</option>
+            <option value="3">Forward Bend</option>
+            <option value="3">Head to Knee</option>
+            <option value="3">Half Moon</option>
+            <option value="3">Fish Pose</option>
+            <option value="3">Cow Face Pose</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn btn-primary mt-2 mb-5" onclick="play()">Start</button>
+    </div>
+  </div>
+</div>
+
+<div class="meet-area">
+  <div class="row">
+    <div class="col-md-5">
+      <!-- Local Video Element-->
+      <video class="input_video" style="display: none"></video>
+      <canvas class="output_canvas" width="500px" height="450px"></canvas>
+      <button class="btn btn-primary mb-2" onclick="join()">
+        Turn on video
+      </button>
+    </div>
+    <div class="col-md-7">
+      <div class="row mb-2">
+        <center>
+          <video id="video" style="display: none">
+            <source src="/assets/videos/triangle.mp4" type="video/mp4" />
+          </video>
+          <div
+            id="player"
+            data-plyr-provider="youtube"
+            data-plyr-embed-id="2HTvZp5rPrg"
+          ></div>
+        </center>
+      </div>
+
+      <center>
+        <div
+          class="pie"
+          data-pie='{ "rotation": 90,"percent":0,"colorSlice": "#4caf4f",
+        "colorCircle": "#f1f1f1",
+        "fontWeight": 100 }'
+        ></div>
+      </center>
+
+      <div class="row">
+        <video id="video" style="display: none">
+          <source src="/assets/videos/triangle.mp4" type="video/mp4" />
+        </video>
+        <div
+          id="player"
+          data-plyr-provider="youtube"
+          data-plyr-embed-id="2HTvZp5rPrg"
+          style="width: 70%"
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 mb-5" style="width: 70%">
+  <center>
+    <div id="mountain">
+      <h2>Mountain Pose (Tadasana)</h2>
+      <p>
+        Mountain Pose (Tadasana) is a foundational yoga pose for all standing
+        poses. You will be using this pose often to prepare for other poses, but
+        it also can be done by itself to help you improve your posture. The
+        posture is entered by standing with the feet together, grounding evenly
+        through the feet and lifting up through the crown of the head. The
+        thighs are lifted, the waist is lifted, and the spine is elongated.
+        Breathing is relaxed. Although Tāḍāsana is a basic asana, it is the
+        basis for many standing asanas.[8] As such, it is important as it allows
+        the body and consciousness to integrate the experience of the preceding
+        āsana and to prepare for the next
+      </p>
+      <br />
+      <h3>Benefits</h3>
+      <p>
+        Mountain Pose improves your posture and body awareness, strengthens your
+        legs, and establishes good alignment.1 Tadasana may not look like much,
+        but keeping your body active and aligned is hard work. You're not just
+        standing in any old way. You have to be aware of each part of your body
+        and the role that it plays in stacking your bones and keeping your spine
+        long.2 You can even break a sweat if you engage your leg muscles as
+        strongly as possible. Mountain Pose acts as the foundation for other
+        poses. Mentally, it tests your focus and concentration. On a physical
+        level, it improves your posture, strengthens your thighs, knees and
+        ankles, firms your abdomen and buttocks, relieves sciatica and reduces
+        flat feet.
+      </p>
+      <br />
+      <h3>Beginner’s Tips</h3>
+      <p>
+        Your stance is extremely important. To begin with a balanced Mountain
+        Pose: place your feet where they naturally fall when you walk forward,
+        and leave a few inches between them. Keep your hips and knees facing
+        forward. Try to gently activate your core to keep your stance strong and
+        retain the pose’s integrity, and prevent yourself from locking your
+        joints.
+      </p>
+    </div>
+
+    <div id="triangle" style="display: none">
+      <h2>Triangle Pose (Utthita Trikonasana)</h2>
+      <p>
+        In Sanskrit, ‘tri’ = ‘three’, ‘kona’ = ‘angle, corners’, ‘asana’ =
+        ‘posture’. Hence Trikonasana just means ‘three corners’ and the English
+        title is Triangle Pose. This is a standing basic beginner level yoga
+        pose and forms part of almost all styles of yoga. A great way to open
+        the hips, while also stretching the muscles around the spine. Compared
+        to the practice of Utthita Trikonasana (Extended Triangle Pose), this
+        requires more flexibility of the hips and the side abdominal muscles.
+        Triangle Pose is considered a base pose as triangle pose variations can
+        be derived from this pose.
+      </p>
+      <br />
+      <h3>Benefits</h3>
+      <p>
+        Extended Triangle is good for lengthening the spine and strengthening
+        and stretching the thighs, knees, ankles and torso. This pose also
+        stretches he hips, groin, hamstrings, and calves; shoulders, chest, and
+        spine. This posture improves digestion by stimulating the abdominal
+        organs and also helps relieve stress. Triangle Pose strengthens the legs
+        and stretches the groin, hamstrings, and hips, and opens the chest and
+        shoulders. It also challenges and improves balance and stability.
+      </p>
+      <br />
+      <h3>Beginner’s Tips</h3>
+      <p>
+        If your legs are too close together, you won’t feel the full benefit of
+        the pose. The length is unique to you and your legs, and you shouldn’t
+        feel strained, but rather a pleasant stretch. Be sure to rotate your
+        front thigh outwards to keep your knee aligned with your foot.
+      </p>
+    </div>
+  </center>
+</div>
+
+<%-include('partials/footer1'); -%>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"
+></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/plyr@3"></script>
+<script src="/assets/js/circularProgressBar.min.js"></script>
+<script src="/assets/js/yoga.js"></script>
+<%- include('partials/footer2'); -%>
