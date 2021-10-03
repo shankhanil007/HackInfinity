@@ -12,6 +12,17 @@ var currentPeer = null;
 const videoGrid = document.getElementById("video-grid");
 const socket = io();
 
+socket.on("user-disconnected", (userId) => {
+  console.log(userId);
+  const video = document.getElementById(userId);
+  video.remove();
+});
+
+socket.on("leaderboard-updates", () => {
+  console.log("Update");
+  leaderBoard();
+});
+
 var userName = "";
 var stage = "";
 var counter = 0;
@@ -27,11 +38,108 @@ var exerciseTime = 0;
 var breakTime = 0;
 var games = [];
 
+socket.on("game_started", ({ gamess, exerciseTimes, breakTimes }) => {
+  exerciseTime = parseFloat(exerciseTimes);
+  breakTime = parseFloat(breakTimes);
+  for (var i of gamess) {
+    games.push(i);
+  }
+  console.log(games);
+  console.log(parseFloat(exerciseTime));
+  console.log(parseFloat(breakTime));
+  startgame();
+});
+
 function find_angle(A, B, C) {
   var AB = Math.sqrt(Math.pow(B[0] - A[0], 2) + Math.pow(B[1] - A[1], 2));
   var BC = Math.sqrt(Math.pow(B[0] - C[0], 2) + Math.pow(B[1] - C[1], 2));
   var AC = Math.sqrt(Math.pow(C[0] - A[0], 2) + Math.pow(C[1] - A[1], 2));
   return Math.acos((BC * BC + AB * AB - AC * AC) / (2 * BC * AB));
+}
+
+function fetchResult() {
+  fetch(`http://localhost:3000/${socket.id}/updateScore/${score}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      socket.emit("update_leaderboard");
+      leaderBoard();
+    });
+}
+
+function thirty() {
+  var countDownTarget = new Date().getTime() + breakTime * 60 * 1000;
+  console.log(breakTime * 60);
+  function showClock(target) {
+    const distance = target - new Date().getTime();
+    const mins =
+      distance < 0
+        ? 0
+        : Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = distance < 0 ? 0 : Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Output the results
+    document.getElementById("timer").innerHTML = "0" + mins + ": " + secs;
+  }
+
+  showClock(countDownTarget);
+
+  // Update the count down every 1 second
+  var x = setInterval(function () {
+    showClock(countDownTarget);
+    if (countDownTarget - new Date().getTime() < 0) {
+      exercise = "";
+      document.getElementById("timer").innerHTML = "00:00";
+      fetchResult();
+      clearInterval(x);
+      if (gamecount == games.length) {
+        complete();
+      } else {
+        timer();
+        callGame(gamecount);
+        gamecount += 1;
+      }
+    }
+  }, 1000);
+}
+
+function timer() {
+  var countDownTarget = new Date().getTime() + exerciseTime * 60 * 1000;
+
+  function showClock(target) {
+    const distance = target - new Date().getTime();
+    const mins =
+      distance < 0
+        ? 0
+        : Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = distance < 0 ? 0 : Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Output the results
+    document.getElementById("timer").innerHTML = "0" + mins + ": " + secs;
+  }
+
+  showClock(countDownTarget);
+
+  var x = setInterval(function () {
+    showClock(countDownTarget);
+    if (countDownTarget - new Date().getTime() < 0) {
+      exercise = "";
+      document.getElementById("timer").innerHTML = "00:00";
+      fetchResult();
+      clearInterval(x);
+      if (gamecount != games.length) {
+        thirty();
+        rest();
+      } else {
+        complete();
+      }
+    }
+  }, 1000);
 }
 
 function lifting() {
@@ -73,6 +181,46 @@ function complete() {
   document.getElementById("exerciseType").innerHTML = "COMPLETED";
   document.getElementById("result").innerHTML = "";
   document.getElementById("image").src = "/assets/img/4.jpg";
+}
+
+function leaderBoard() {
+  var winner = "";
+  var max = -1;
+
+  fetch(`http://localhost:3000/${room}/leaderboard`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      var table = document.getElementById("leaderboard");
+      $("#leaderboard").find("tr:not(:first)").remove();
+      for (var i = 0; i < json.length; i++) {
+        if (json[i].score > max) {
+          max = json[i].score;
+          winner = json[i].name;
+        }
+
+        var tr = document.createElement("tr");
+        var td1 = document.createElement("td");
+        var td3 = document.createElement("td");
+
+        var text1 = document.createTextNode(json[i].name);
+        var text3 = document.createTextNode(json[i].score);
+        td1.appendChild(text1);
+        td3.appendChild(text3);
+        tr.appendChild(td1);
+        tr.appendChild(td3);
+        table.appendChild(tr);
+      }
+
+      if (gamecount == games.length) {
+        document.getElementById("winner").innerHTML = "Winner : " + winner;
+      }
+    });
 }
 
 function startgame() {
