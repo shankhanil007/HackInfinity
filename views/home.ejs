@@ -18,6 +18,12 @@
       crossorigin="anonymous"
     />
     <link href="assets/css/master.css" rel="stylesheet" />
+    <style>
+      .card:hover{
+        transform: scale(1.05);
+        transition: all .2s ease-in;
+      }
+    </style>
   </head>
 
   <body>
@@ -26,6 +32,17 @@
 
          <!-- Navbar Section -->
         <nav class="navbar navbar-expand-lg navbar-white bg-white">
+          <a class="navbar-brand" href="/"><img
+            src="/assets/img/14.png"
+            alt="bootraper logo"
+            class="app-logo"
+          /></a>
+          <a href="/yoga_gallery" class="nav-item nav-link text-secondary" aria-expanded="false">
+            <span>Yoga Center</span>
+          </a>
+          <a href="/photo_gallery" class="nav-item nav-link text-secondary" aria-expanded="false">
+            <span>Image Gallery</span>
+          </a>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ms-auto">
               <li class="nav-item dropdown">
@@ -93,11 +110,94 @@
 
 
         <center>
-            <img src="assets/img/undraw_healthy_habit_bh5w.svg" style="width: 65%; height: 65%;">
+            <img src="assets/img/undraw_healthy_habit_bh5w.svg" style="width: 55%; height: 55%; margin-top: 20px;">
             <h1 style="color:#104FBD; font-weight: bold; font-size: 35px; padding-bottom: 120px; padding-top: 40px;">
-                Welcome to Fitness Pro
+                Welcome to Streak Fit
             </h1>
+
+            <div class="container" style="width: 62%;">
+              <div class="row mb-5">
+                <h2 >About Us</h2><br>
+                <p>Streak Fit is a virtual gym community where users can join a private video chat room and exercise with their mates. It would keep a track of one’s daily fitness activities and also host exercise competitions among peers. Our platform leverages the power of AI/ML to track various exercises movements and yoga postures to ensure fairness during virtual fitness competitions. Our pose detection algorithm shall take care of the counts and exercise postures so that you can freely exercise with your peers.</p>
+              </div>
+            </div>
+            
+            <div class="container" style="width: 80%;">
+              <div class="row mb-5">
+                <h2 style="margin-bottom: 30px;"> Our Features</h2><br>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="card" style="width: 100%">
+                      <img class="card-img-top" src="/assets/img/features/1.JPG" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Dashboard</h5>
+                        <p class="card-text">Get detailed insights of your daily fitness activity, points earned, leaderboard ranking, etc. </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card" style="width: 100%">
+                      <img class="card-img-top" src="/assets/img/features/2.JPG" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Make Friends</h5>
+                        <p class="card-text">Find your friends on our platform, send friend requests, and grow your virtual fitness network</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card" style="width: 100%">
+                      <img class="card-img-top" src="/assets/img/features/5.JPG" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Yoga Center</h5>
+                        <p class="card-text">Experience more than 15 guided video sessions, with step-by-step explanation for each asana</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-5">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="card" style="width: 100%">
+                      <img class="card-img-top" src="/assets/img/features/6.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">AI Powered</h5>
+                        <p class="card-text">Our pose detection algorithm will assist you to perform each asana accurately </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card" style="width: 100%">
+                      <img class="card-img-top" src="/assets/img/features/3.JPG" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Video Stream</h5>
+                        <p class="card-text">Join with your friends on a video call for a healthy fitness competition.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card" style="width: 100%">
+                      <img class="card-img-top" src="/assets/img/features/4.JPG" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Win Rewards</h5>
+                        <p class="card-text">Be a top performer and win discount points and get a chance to win free elite pass.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+
+
+            </div>
+
+                
         </center>
+
+          
+        </div>
 
       </div>
     </div>
@@ -112,6 +212,7 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
