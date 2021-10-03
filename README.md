@@ -18,6 +18,16 @@ exercises movements and yoga postures to ensure fairness during virtual fitness 
 Our pose detection algorithm shall take care of the counts and exercise postures so that users
 can freely exercise with their peers.
 
+
+## Features
+
+- **Dashboard:** Get detailed insights of your daily fitness activity, points earned, leaderboard ranking, etc. 
+- **Make Friends:** Find your friends on our platform, send friend requests, and grow your virtual fitness network.
+- **Yoga Center:** Experience more than 15 guided video sessions, with step-by-step explanation for each asana.
+- **AI Powered:** Our pose detection algorithm will assist you to perform each asana accurately.
+- **Video Stream:** Join with your friends on a video call for a healthy fitness competition.
+- **Win Rewards:** Be a top performer and win discount points and get a chance to win free elite pass.
+
 ## Tech Stack
 
 The Tech stack includes : 
