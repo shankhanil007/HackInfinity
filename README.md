@@ -20,6 +20,8 @@ exercises movements and yoga postures to ensure fairness during virtual fitness 
 Our pose detection algorithm shall take care of the counts and exercise postures so that users
 can freely exercise with their peers.
 
+## Workflow
+![](public/assets/img/features/Workflow.png)
 
 ## Features
 
