@@ -1,5 +1,5 @@
-# Streak-Fit-1
-Project for Build-a-thon (Domain : Healthcare, E-Technologies)
+# Streak-Fit
+Project for Build-a-thon (Domain : Healthcare)
 
 ## Problem Statement
 
@@ -41,25 +41,3 @@ The Tech stack includes :
 - mediapipe pose
 - Bootstrap
 - OpenCV
-
-## Tasks
-
-- [x] brief problem statement discussion
-
-- [ ] pose detection implementaion locally
-
-- [ ] video streaming on web
-
-- [ ] integrating multiple streams
-
-- [x] basic website layout design
-
-- [ ] user authentication
-
-- [ ] dashboard for multiple users
-
-- [ ] integrating streams with pose detecting model in javascript
-
-- [ ] gamification of the idea
-
-- [ ] features like badges and incentives
